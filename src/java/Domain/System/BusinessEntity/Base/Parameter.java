@@ -7,7 +7,6 @@ package Domain.System.BusinessEntity.Base;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -27,15 +26,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author zarmir
  */
 @Entity
-@Table(catalog = "", schema = "AFRODITA")
+@Table(name = "PARAMETER")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Parameter.findAll", query = "SELECT p FROM Parameter p"),
     @NamedQuery(name = "Parameter.findByIdparameter", query = "SELECT p FROM Parameter p WHERE p.idparameter = :idparameter"),
-    @NamedQuery(name = "Parameter.findByGroupparameter", query = "SELECT p FROM Parameter p WHERE p.groupparameter = :groupparameter"),
-    @NamedQuery(name = "Parameter.findByDescription", query = "SELECT p FROM Parameter p WHERE p.description = :description"),
-    @NamedQuery(name = "Parameter.findByIduser", query = "SELECT p FROM Parameter p WHERE p.iduser = :iduser"),
-    @NamedQuery(name = "Parameter.findByCreationdate", query = "SELECT p FROM Parameter p WHERE p.creationdate = :creationdate"),
+    @NamedQuery(name = "Parameter.findByName", query = "SELECT p FROM Parameter p WHERE p.name = :name"),
+    @NamedQuery(name = "Parameter.findByStatus", query = "SELECT p FROM Parameter p WHERE p.status = :status"),
+    @NamedQuery(name = "Parameter.findByCreatedate", query = "SELECT p FROM Parameter p WHERE p.createdate = :createdate"),
     @NamedQuery(name = "Parameter.findByUpdatedate", query = "SELECT p FROM Parameter p WHERE p.updatedate = :updatedate")})
 public class Parameter implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -43,25 +41,25 @@ public class Parameter implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false, precision = 38, scale = 0)
+    @Column(name = "IDPARAMETER")
     private BigDecimal idparameter;
-    @Size(max = 4)
-    @Column(length = 4)
-    private String groupparameter;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
-    @Column(nullable = false, length = 200)
-    private String description;
-    private BigInteger iduser;
+    @Size(min = 1, max = 100)
+    @Column(name = "NAME")
+    private String name;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
+    @Column(name = "STATUS")
+    private short status;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "CREATEDATE")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date creationdate;
+    private Date createdate;
     @Basic(optional = false)
     @NotNull
-    @Column(nullable = false)
+    @Column(name = "UPDATEDATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedate;
 
@@ -72,10 +70,11 @@ public class Parameter implements Serializable {
         this.idparameter = idparameter;
     }
 
-    public Parameter(BigDecimal idparameter, String description, Date creationdate, Date updatedate) {
+    public Parameter(BigDecimal idparameter, String name, short status, Date createdate, Date updatedate) {
         this.idparameter = idparameter;
-        this.description = description;
-        this.creationdate = creationdate;
+        this.name = name;
+        this.status = status;
+        this.createdate = createdate;
         this.updatedate = updatedate;
     }
 
@@ -87,36 +86,28 @@ public class Parameter implements Serializable {
         this.idparameter = idparameter;
     }
 
-    public String getGroupparameter() {
-        return groupparameter;
+    public String getName() {
+        return name;
     }
 
-    public void setGroupparameter(String groupparameter) {
-        this.groupparameter = groupparameter;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public short getStatus() {
+        return status;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setStatus(short status) {
+        this.status = status;
     }
 
-    public BigInteger getIduser() {
-        return iduser;
+    public Date getCreatedate() {
+        return createdate;
     }
 
-    public void setIduser(BigInteger iduser) {
-        this.iduser = iduser;
-    }
-
-    public Date getCreationdate() {
-        return creationdate;
-    }
-
-    public void setCreationdate(Date creationdate) {
-        this.creationdate = creationdate;
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
     }
 
     public Date getUpdatedate() {

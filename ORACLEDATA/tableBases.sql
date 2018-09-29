@@ -5,6 +5,9 @@ CREATE TABLE color (
   STATUS   NUMBER(1,0) NOT NULL,
   CHECK (STATUS BETWEEN 0 and 1)
 );
+
+ALTER TABLE color
+ADD CONSTRAINT constraint_idcolor PRIMARY KEY (idcolor);
  --INSERT INTO COLOR (NAME,DESCRIPTION,STATUS)
  --VALUES('RED','RED COLOR',1)
  
@@ -19,6 +22,8 @@ CREATE TABLE clothingline (
   updatedate TIMESTAMP not null,
   CHECK (STATUS BETWEEN 0 and 1)
 );
+ALTER TABLE clothingline
+ADD CONSTRAINT constraint_idclothingline PRIMARY KEY (idclothingline);
 
 
 CREATE TABLE clothing (
@@ -33,6 +38,9 @@ CREATE TABLE clothing (
   CHECK (STATUS BETWEEN 0 and 1)
 );
 
+ALTER TABLE clothing
+ADD CONSTRAINT constraint_idclothing PRIMARY KEY (idclothing);
+
 
 CREATE TABLE Groupparameter (
   idGroupparameter   NUMBER        GENERATED ALWAYS AS IDENTITY,
@@ -40,6 +48,11 @@ CREATE TABLE Groupparameter (
   createdate timestamp  not null,
   updatedate TIMESTAMP not null
 );
+
+
+ALTER TABLE Groupparameter
+ADD CONSTRAINT constraint_Groupparameter PRIMARY KEY (idGroupparameter);
+
 
 CREATE TABLE parameter (
   idparameter    NUMBER        GENERATED ALWAYS AS IDENTITY,
@@ -49,6 +62,8 @@ CREATE TABLE parameter (
   updatedate TIMESTAMP not null
 );
 
+ALTER TABLE parameter
+ADD CONSTRAINT constraint_Gidparameter PRIMARY KEY (idparameter);
 
 CREATE TABLE parameter (
   idparameter    NUMBER        GENERATED ALWAYS AS IDENTITY,
@@ -65,7 +80,9 @@ create table sizes
   STATUS   NUMBER(1,0) NOT NULL,
  CHECK (STATUS BETWEEN 0 and 1)
 )
- 
+ ALTER TABLE sizes
+ADD CONSTRAINT constraint_sizes PRIMARY KEY (idsize);
+
  --// CREATE TABLE  DESCRIPTION 
   --//(
    --//iddescription NUMBER        GENERATED ALWAYS AS IDENTITY,
@@ -92,7 +109,9 @@ create table sizes
  CHECK (STATUS BETWEEN 0 and 1)
  
  )
- 
+  ALTER TABLE stock
+ADD CONSTRAINT constraint_stock PRIMARY KEY (idstock);
+
  CREATE TABLE temptpayheader
  (
  
@@ -109,6 +128,8 @@ create table sizes
  CHECK (STATUS BETWEEN 0 and 1)
  
  )
+   ALTER TABLE temptpayheader
+ADD CONSTRAINT constraint_temptpayheader PRIMARY KEY (idtemptpayheader);
  
   CREATE TABLE Detailtemptpay
  (
@@ -131,8 +152,24 @@ create table sizes
  
  )
 
+ create table users
+ ( iduser NUMBER        GENERATED ALWAYS AS IDENTITY,
+   name varchar(200) not null,
+   email varchar(100) not null,
+   password varchar2(100) not null,
+   createdate timestamp not null,
+   updatedate timestamp null,
+  status numeric(1,0) not null,
+   CHECK (STATUS BETWEEN 0 and 1)
+ )
 
 
+ALTER TABLE users
+ADD CONSTRAINT constraint_iduser PRIMARY KEY (iduser);
+
+   ALTER TABLE Detailtemptpay
+ADD CONSTRAINT constraint_idDetailtemptpay PRIMARY KEY (idDetailtemptpay);
+  
 
 
 

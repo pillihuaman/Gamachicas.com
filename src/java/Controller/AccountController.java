@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Domain.System.BusinessEntity.Base.UsersBE;
+import Domain.System.BusinessEntity.Base.Users;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,10 +25,10 @@ public class AccountController {
         //String txtContrasenia=request.getParameter("txtContrasenia");
         //mav.addObject("txtCorreo", txtCorreo);
         //mav.addObject("txtContrasenia", txtContrasenia);
-        return new ModelAndView("login","command", new UsersBE("pillihuamanhz@gmail.com", null));
+        return new ModelAndView("login","command", new Users("pillihuamanhz@gmail.com", null));
     }
      @RequestMapping(value = "login.htm",method = RequestMethod.POST)
-    public String login(UsersBE per, ModelMap model)
+    public String login(Users per, ModelMap model)
     {
          model.addAttribute("email",per.getEmail());
          model.addAttribute("password",per.getPassword());
