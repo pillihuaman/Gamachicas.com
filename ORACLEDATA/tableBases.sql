@@ -6,6 +6,8 @@ CREATE TABLE color (
   CHECK (STATUS BETWEEN 0 and 1)
 );
 
+alter table color add  code varchar(50)
+
 ALTER TABLE color
 ADD CONSTRAINT constraint_idcolor PRIMARY KEY (idcolor);
  --INSERT INTO COLOR (NAME,DESCRIPTION,STATUS)
@@ -162,13 +164,13 @@ ADD CONSTRAINT constraint_temptpayheader PRIMARY KEY (idtemptpayheader);
   status numeric(1,0) not null,
    CHECK (STATUS BETWEEN 0 and 1)
  )
-
-
 ALTER TABLE users
 ADD CONSTRAINT constraint_iduser PRIMARY KEY (iduser);
 
    ALTER TABLE Detailtemptpay
 ADD CONSTRAINT constraint_idDetailtemptpay PRIMARY KEY (idDetailtemptpay);
+
+
   
 
 
