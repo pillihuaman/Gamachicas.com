@@ -5,6 +5,7 @@
  */
 package model.system.repository;
 
+import Domain.System.BusinessEntity.BusinessLogic.stockClothesBL;
 import Domain.System.BusinessEntity.ViewStockBE;
 import model.system.Abstract.IstockClothes;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,14 @@ import org.springframework.stereotype.Service;
  * @author zarmir
  */
 @Service
-public class stockClothes implements IstockClothes{
+public  class stockClothes implements IstockClothes{
 
     @Override
-    public ViewStockBE getViewStock() {
-      return null;
+    public  ViewStockBE getViewStock(ViewStockBE objs) {
+        ViewStockBE ob= new ViewStockBE();
+        stockClothesBL obl= new stockClothesBL();
+        obl.getViewStock(objs);
+      return ob;
     }
     
 }

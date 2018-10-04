@@ -16,7 +16,7 @@ import java.util.Properties;
  */
 public class  OracleAdapter {
 
-     public Connection getConnection ()
+     public  static Connection getConnection ()
      {
          Connection con= null;
           try

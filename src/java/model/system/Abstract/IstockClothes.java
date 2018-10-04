@@ -11,7 +11,7 @@ import Domain.System.BusinessEntity.ViewStockBE;
  *
  * @author zarmir
  */
-public interface IstockClothes {
+public  interface IstockClothes {
     
-    ViewStockBE  getViewStock();
+    ViewStockBE  getViewStock(ViewStockBE objs);
 }

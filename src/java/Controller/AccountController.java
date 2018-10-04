@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+
 public class AccountController {
    
     @RequestMapping(  value = "login.htm" ,method = RequestMethod.GET)//Metodo de una vista
@@ -26,6 +27,7 @@ public class AccountController {
         //mav.addObject("txtCorreo", txtCorreo);
         //mav.addObject("txtContrasenia", txtContrasenia);
         return new ModelAndView("login","command", new Users("pillihuamanhz@gmail.com", null));
+ 
     }
      @RequestMapping(value = "login.htm",method = RequestMethod.POST)
     public String login(Users per, ModelMap model)

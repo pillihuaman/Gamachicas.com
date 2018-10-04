@@ -14,8 +14,6 @@ import model.system.repository.stockClothes;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.portlet.ModelAndView;
@@ -26,39 +24,43 @@ import org.springframework.web.portlet.ModelAndView;
 
 
 @Controller 
-@Service
-//@RequestMapping(value = "/Payment")
-public class PaymentController  implements Controller{
+
+public class PaymentController {
 //    private  stockClothes stockClothes;
     
-    
-    @RequestMapping(value = "/Payment/getpay.htm",method = RequestMethod.GET)
-    public ModelAndView GetPay()
-    {
-//          ViewStockBE va=  getIstockClothes().getViewStock();
-        
-          ModelAndView objpay= new ModelAndView();
-          objpay.setViewName("getpay");  
-     return  new ModelAndView();
-    
-    }
  
-    @RequestMapping(value = "getpay.html",method = RequestMethod.POST)
-    public JSONObject  postPay()
+    @RequestMapping(  value = "/Payment/getstock.htm" ,method = RequestMethod.GET)//Metodo de una vista
+    public ModelAndView getstock()
     {
-    
-         return null;
+        stockClothes obj= new stockClothes();
+        ViewStockBE obview= new ViewStockBE();
+        ViewStockBE ob=obj.getViewStock(obview);
+        
+      //ModelAndView mav =new ModelAndView( );
+        //mav.setViewName("login");
+        ///String txtCorreo =request.getParameter("txtCorreo");
+        //String txtContrasenia=request.getParameter("txtContrasenia");
+        //mav.addObject("txtCorreo", txtCorreo);
+        //mav.addObject("txtContrasenia", txtContrasenia);
+//        return new ModelAndView("getstock","command",null);
+        return null;
     }
-
-    @Override
-    public String value() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public ModelAndView getPay()
+//    {
+//        
+//          ModelAndView objpay= new ModelAndView();
+//         objpay.setViewName("getPay");  
+//     return  new ModelAndView();
+//    
+//    }
+// 
+//    @RequestMapping(value = "postPay.htm"  ,method = RequestMethod.POST)
+//    public JSONObject  postPay()
+//    {
+//    
+//         return null;
+//    }
+//
 
     /**
      * @return the stockClothes
