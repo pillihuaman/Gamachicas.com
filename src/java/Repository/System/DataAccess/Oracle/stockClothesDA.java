@@ -29,6 +29,7 @@ public class stockClothesDA {
            stm.registerOutParameter(4, java.sql.Types.VARCHAR);
            stm.execute();
           String nombre=stm.getString(2);
+          String cantidad=stm.getString(3);
          }catch( Exception ex)
          {
               ex.getMessage();
