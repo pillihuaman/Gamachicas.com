@@ -5,6 +5,7 @@
  */
 package Repository.System.DataAccess.Oracle;
 
+import Domain.System.BusinessEntity.Base.Clothing;
 import Domain.System.BusinessEntity.ViewStockBE;
 import Infrastructure.System.Adapters.OracleAdapter;
 import com.sun.mail.smtp.SMTPAddressFailedException;
@@ -18,6 +19,7 @@ public class stockClothesDA {
       public static ViewStockBE getViewStock( ViewStockBE objs)
     {
         ViewStockBE ob= new ViewStockBE();
+          Clothing clo= new Clothing();
          try
          {
           String Command="{call getstock(?,?,?,?)}";
@@ -26,10 +28,13 @@ public class stockClothesDA {
            stm.setInt(1, 1);
            stm.registerOutParameter(2, java.sql.Types.VARCHAR);
            stm.registerOutParameter(3, java.sql.Types.VARCHAR);
-           stm.registerOutParameter(4, java.sql.Types.VARCHAR);
+           stm.registerOutParameter(4, java.sql.Types.INTEGER);
            stm.execute();
-          String nombre=stm.getString(2);
-          String cantidad=stm.getString(3);
+             clo.setName(stm.getString(2));
+            clo.setDescription(stm.getString(3));
+            clo.setStatus(stm.getShort(4));
+            ob.setClothing(clo);
+          
          }catch( Exception ex)
          {
               ex.getMessage();
@@ -37,6 +42,6 @@ public class stockClothesDA {
          }
          
         
-        return null;
+        return ob;
     }
 }

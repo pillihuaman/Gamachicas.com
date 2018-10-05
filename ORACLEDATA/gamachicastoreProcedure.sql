@@ -12,6 +12,9 @@ BEGIN
 END;
 /
 
+ execu
+
+
  /*insert into clothing(
 IDCLOTHINGLINE,
 IDCOLOR,
@@ -20,5 +23,7 @@ DESCRIPTION,
 STATUS,
 CREATEDATE,
 UPDATEDATE
- ) values (1,1,'Cafarenas','cafarenas piel de durazno',1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)*/
+ ) values (2,1,'Polivestidos','Polivestidos piel de  durazno con flores ',1,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)*/
  select * from clothing
+ 
+
