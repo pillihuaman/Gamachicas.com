@@ -1,0 +1,1 @@
+Empty package PROGETSTOCK definition (no public members).

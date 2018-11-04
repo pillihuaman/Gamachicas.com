@@ -22,17 +22,17 @@ public class stockClothesDA {
           Clothing clo= new Clothing();
          try
          {
-          String Command="{call getstock(?,?,?,?)}";
+          String Command="{call PROGETSTOCK(?)}";
           
            CallableStatement stm= OracleAdapter.getConnection().prepareCall(Command);
            stm.setInt(1, 1);
            stm.registerOutParameter(2, java.sql.Types.VARCHAR);
            stm.registerOutParameter(3, java.sql.Types.VARCHAR);
-           stm.registerOutParameter(4, java.sql.Types.INTEGER);
+           //stm.registerOutParameter(4, java.sql.Types.INTEGER);
            stm.execute();
              clo.setName(stm.getString(2));
             clo.setDescription(stm.getString(3));
-            clo.setStatus(stm.getShort(4));
+            //lo.setStatus(stm.getShort(4));
             ob.setClothing(clo);
           
          }catch( Exception ex)
