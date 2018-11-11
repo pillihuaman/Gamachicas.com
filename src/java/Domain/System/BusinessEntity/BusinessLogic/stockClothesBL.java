@@ -8,6 +8,7 @@ package Domain.System.BusinessEntity.BusinessLogic;
 import Domain.System.BusinessEntity.ViewStockBE;
 import Repository.System.DataAccess.Oracle.stockClothesDA;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -16,7 +17,7 @@ import java.sql.SQLException;
 public class stockClothesBL {
     
     
-    public ViewStockBE getViewStock( ViewStockBE objs) throws SQLException
+    public  List<ViewStockBE> getViewStock( ViewStockBE objs) throws SQLException
     {
         return stockClothesDA.getViewStock(objs);
     }

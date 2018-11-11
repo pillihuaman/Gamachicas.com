@@ -7,6 +7,10 @@ package model.system.repository;
 
 import Domain.System.BusinessEntity.BusinessLogic.stockClothesBL;
 import Domain.System.BusinessEntity.ViewStockBE;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.system.Abstract.IstockClothes;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +23,15 @@ import org.springframework.stereotype.Service;
 public  class stockClothes implements IstockClothes{
 
     @Override
-    public  ViewStockBE getViewStock(ViewStockBE objs) {
+    public   List<ViewStockBE> getViewStock(ViewStockBE objs) {
         ViewStockBE ob= new ViewStockBE();
         stockClothesBL obl= new stockClothesBL();
-        obl.getViewStock(objs);
-      return ob;
+        try {
+            return  obl.getViewStock(objs);
+        } catch (SQLException ex) {
+            Logger.getLogger(stockClothes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
 }

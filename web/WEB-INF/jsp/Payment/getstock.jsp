@@ -9,7 +9,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       
        <link id="callCss" rel="stylesheet" href="<c:url value="/source/themes/bootshop/bootstrap.min.css"/>" media="screen"/>
     <link href="themes/css/base.css" rel="stylesheet" media="screen"/>
 <!-- Bootstrap style responsive -->	
@@ -169,7 +168,7 @@
 				  <i class="tag"></i>
 					<a href="product_details.html"><img src="themes/images/products/b1.jpg" alt=""></a>
 					<div class="caption">
-					  <h5>Product name</h5>
+					  <h5>${lstStok.description}</h5>
 					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
 					</div>
 				  </div>
@@ -179,7 +178,7 @@
 				  <i class="tag"></i>
 					<a href="product_details.html"><img src="themes/images/products/b2.jpg" alt=""></a>
 					<div class="caption">
-					  <h5>Product name</h5>
+					  <h5>${lstStok.description}</h5>
 					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
 					</div>
 				  </div>
@@ -453,7 +452,6 @@
 		<p class="pull-right">&copy; Bootshop</p>
 	</div><!-- Container End -->
 	</div>
-
 
 <!-- Placed at the end of the document so the pages load faster ============================================= -->
 <script src="<c:url value="/source/themes/js/jquery.js"/>" type="text/javascript"></script>

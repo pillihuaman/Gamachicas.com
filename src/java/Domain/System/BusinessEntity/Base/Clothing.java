@@ -80,6 +80,12 @@ public class Clothing implements Serializable {
     public Clothing(BigDecimal idclothing) {
         this.idclothing = idclothing;
     }
+    
+       public Clothing(BigDecimal idclothing, String name) {
+        this.idclothing = idclothing;
+        this.name = name;
+    }
+
 
     public Clothing(BigDecimal idclothing, String name, short status, Date createdate, Date updatedate) {
         this.idclothing = idclothing;

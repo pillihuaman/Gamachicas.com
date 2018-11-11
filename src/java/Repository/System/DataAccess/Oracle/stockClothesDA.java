@@ -27,17 +27,12 @@ import oracle.jdbc.OracleTypes;
 public class stockClothesDA {
     
   
-	   public static ViewStockBE getViewStock( ViewStockBE objs)
+	   public static   List<ViewStockBE>  getViewStock( ViewStockBE objs)
 			throws SQLException {
 
 		Connection dbConnection = null;
 		CallableStatement callableStatement = null;
 		ResultSet rs = null;
-                String userName= null;
-                String description= null;
-                BigDecimal userid =null;
-                ViewStockBE ob= new ViewStockBE();
-                Clothing clo= new Clothing();
             List<ViewStockBE> lst =new ArrayList<ViewStockBE>();
 		String getDBUSERCursorSql = "{call getlitsas(?,?)}";
 
@@ -55,12 +50,13 @@ public class stockClothesDA {
 			rs = (ResultSet) callableStatement.getObject(2);
 
 			while (rs.next()) {
-                            userid=rs.getBigDecimal("idclothing");
+                         ViewStockBE ob= new ViewStockBE();
+                          Clothing clo= new Clothing();
                             clo.setIdclothing(rs.getBigDecimal("idclothing"));
                               clo.setName(rs.getString("name"));
                               clo.setDescription(rs.getString("description"));
-			       lst.add(ob);
-                                 
+                              ob.setClothing(clo);
+			       lst.add(ob);   
 //				
 			}
 
@@ -83,7 +79,7 @@ public class stockClothesDA {
 			}
 
 		}
- return null;
+ return lst;
 	}
 
 }

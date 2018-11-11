@@ -6,6 +6,7 @@
 package model.system.Abstract;
 
 import Domain.System.BusinessEntity.ViewStockBE;
+import java.util.List;
 
 /**
  *
@@ -13,5 +14,5 @@ import Domain.System.BusinessEntity.ViewStockBE;
  */
 public  interface IstockClothes {
     
-    ViewStockBE  getViewStock(ViewStockBE objs);
+     List<ViewStockBE>  getViewStock(ViewStockBE objs);
 }
