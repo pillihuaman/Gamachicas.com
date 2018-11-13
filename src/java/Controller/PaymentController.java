@@ -13,9 +13,11 @@ import Domain.System.BusinessEntity.ViewStockBE;
 import java.lang.annotation.Annotation;
 import java.util.AbstractList;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import model.system.Abstract.IstockClothes;
 import model.system.repository.stockClothes;
+import oracle.sql.ARRAY;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,12 +41,38 @@ public class PaymentController {
     {
         stockClothes obj= new stockClothes();
         ViewStockBE obview= new ViewStockBE();
+     
+//        Clothing.name
          List<ViewStockBE> ob =null;
            ob=(List<ViewStockBE>) obj.getViewStock(obview);
-           String odb = "Hola";
-          Clothing obclothing = new Clothing();
-          obclothing.setDescription("Casaca");
-          return new ModelAndView("/Payment/getstock", "lstStok",obclothing);
+         
+ViewStockBE objs= new ViewStockBE();
+//////for (Iterator<ViewStockBE> i = ob.iterator(); i.hasNext();) {
+////// 
+//////  System.out.print(i);
+//////   
+//////}
+//   List<Clothing> lst = new ArrayList<>();
+////           String odb = "Hola";
+//        for (int i = 0; i < 10; i++) {
+//            Clothing obclothing = new Clothing();
+//              obclothing.setDescription("Casaca negra"+i);
+//              obclothing.setName("Casaca"+i);
+//             ;
+//              
+//            lst.add(obclothing); 
+//        }
+
+              
+            
+             
+              
+//              lst.add("hola");
+//              lst.add("mundo");
+//               lst.add("zarmir");
+//                lst.add("pillihuaman");
+              
+          return new ModelAndView("/Payment/getstock", "lstStok",ob);
 //        
 //       ModelAndView mav =new ModelAndView( );
 //        mav.setViewName("getstock");
